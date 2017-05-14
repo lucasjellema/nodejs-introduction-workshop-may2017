@@ -6,36 +6,28 @@ var delay = 1500;  //miliseconds
 var numberOfLoops = 5;
 var results = Array(numberOfLoops);
 
-function doStuff(param, callback) {
-    var cb = callback;
-    var p = param;
+function doStuff(param, cb) {
     setTimeout(function () {
         console.log("Stuff was done for parameter " + param);
         cb(param.toUpperCase());
     }, delay * (0.7 + Math.random()));
 }
 
-function doAdditionalStuff(param, callback) {
-    var cb = callback;
-    var p = param;
+function doAdditionalStuff(param, cb) {
     setTimeout(function () {
         console.log("Additional Stuff was done for parameter " + param);
         cb(param + " Enriched!");
     }, delay * (0.5 + 2 * Math.random()));
 }
 
-function doMoreStuff(param, callback) {
-    var cb = callback;
-    var p = param;
+function doMoreStuff(param, cb) {
     setTimeout(function () {
         console.log("More stuff was done for parameter " + param);
         cb(param + " (The finishing touch)");
     }, delay * (0.5 + Math.random()));
 }
 
-function oneLastThing(param, callback) {
-    var cb = callback;
-    var p = param;
+function oneLastThing(param, cb) {
     setTimeout(function () {
         console.log("One Last Thing for " + param);
         cb('For starters, then '+ param );

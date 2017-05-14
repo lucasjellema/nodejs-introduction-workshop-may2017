@@ -1,5 +1,5 @@
 {
-  "name": "part7-future",
+  "name": "part7-promises",
   "version": "1.0.0",
   "description": "",
   "main": "generator.js",
@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "asynch": "^0.5.2"
+    "async": "^2.4.0"
   }
 }

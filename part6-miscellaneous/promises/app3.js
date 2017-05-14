@@ -1,12 +1,11 @@
 var delay = 1500;  //miliseconds
+var numberOfLoops = 5;
 
 
 function doStuff(param, callback) {
-    var cb = callback;
-    var p = param;
     setTimeout(function () {
         console.log("Stuff was done for parameter " + param);
-        cb(param);
+        callback(param);
     }, delay * (1+ Math.random()));
 }
 
@@ -20,7 +19,7 @@ var start = new Date();
 
 // sequential loop resulting in parallel execution
 // note how the overall execution time (over all executions) is reported for each individual execution. Also note how the first execution going in may not be the first to be completed 
-for (var i = 0; i < 5; i++) {
+for (var i = 0; i < numberOfLoops; i++) {
     doStuff('Step ' + i, function (parameter) {
         console.log("Report back from doStuff for parameter " + parameter);
         reportExecutionTime();

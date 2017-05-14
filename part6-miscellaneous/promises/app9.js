@@ -1,6 +1,3 @@
-var async = require('async')
-
-
 var delay = 1500;  //miliseconds
 
 var numberOfLoops = 5;

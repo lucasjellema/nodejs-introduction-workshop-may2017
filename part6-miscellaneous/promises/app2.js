@@ -1,9 +1,7 @@
 var delay = 1500;  //miliseconds
 
 
-function doStuff(param, callback) {
-    var cb = callback;
-    var p = param;
+function doStuff(param, cb) {
     setTimeout(function () {
         console.log("Stuff was done for parameter " + param);
         cb(param);
