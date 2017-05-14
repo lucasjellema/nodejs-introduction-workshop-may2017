@@ -23,9 +23,9 @@ var app = express()
     var department = getDepartment(departmentId);
     // get employee details for department from remote API
     https.get({
-      host: 'data-api-lucasjellema.apaas.em2.oraclecloud.com',
+      host: 'https://raw.githubusercontent.com/lucasjellema/nodejs-introduction-workshop-may2017/master/part3-express/departments.json',
       port: 443,
-      path: '/departments/' + departmentId,
+      //path: '/departments/' + departmentId,
       method: 'GET'
     }, function handleRemoteResponse(resp) {
       var body = "";
