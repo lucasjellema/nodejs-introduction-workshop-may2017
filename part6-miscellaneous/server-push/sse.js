@@ -4,9 +4,9 @@ console.log("loading sse.js");
 
 // ... with this middleware:
 function sseMiddleware(req, res, next) {
-    console.log(" sseMiddleware is activated with "+ req+" res: "+res);
+    console.log(" sseMiddleware is activated with " + req + " res: " + res);
     res.sseConnection = new Connection(res);
-    console.log(" res has now connection  res: "+res.sseConnection );
+    console.log(" res has now connection  res: " + res.sseConnection);
     next();
 }
 exports.sseMiddleware = sseMiddleware;
@@ -15,8 +15,8 @@ exports.sseMiddleware = sseMiddleware;
  */
 var Connection = (function () {
     function Connection(res) {
-          console.log(" sseMiddleware construct connection for response ");
-  
+        console.log(" sseMiddleware construct connection for response ");
+
         this.res = res;
     }
     Connection.prototype.setup = function () {
@@ -28,11 +28,11 @@ var Connection = (function () {
         });
     };
     Connection.prototype.send = function (data) {
-        console.log("send event to SSE stream "+JSON.stringify(data));
+        console.log("send event to SSE stream " + JSON.stringify(data));
         this.res.write("data: " + JSON.stringify(data) + "\n\n");
     };
     return Connection;
-}());
+} ());
 
 exports.Connection = Connection;
 /**
@@ -40,14 +40,14 @@ exports.Connection = Connection;
  */
 var Topic = (function () {
     function Topic() {
-          console.log(" constructor for Topic");
-  
+        console.log(" constructor for Topic");
+
         this.connections = [];
     }
     Topic.prototype.add = function (conn) {
         var connections = this.connections;
         connections.push(conn);
-        console.log('New client connected, now: ', connections.length);
+        console.log('New client connected, the number of clients is now: ', connections.length);
         conn.res.on('close', function () {
             var i = connections.indexOf(conn);
             if (i >= 0) {
@@ -60,5 +60,5 @@ var Topic = (function () {
         this.connections.forEach(cb);
     };
     return Topic;
-}());
+} ());
 exports.Topic = Topic;
