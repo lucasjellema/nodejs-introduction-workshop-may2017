@@ -71,6 +71,5 @@ async.waterfall([ // execute three asynchronous calls sequentially, passing the 
     },
 ], function (err, result) { // when all parallel actions are done – do something
     if (err) { console.error(err.message); return; }
-    // configs is now a map of JSON data
     console.log("Final Result: "+result);
 })
